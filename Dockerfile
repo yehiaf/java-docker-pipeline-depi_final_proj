@@ -1,4 +1,4 @@
-# Test web-app to use with Pluralsight courses and Docker Deep Dive book
+# Test building docker image from Dockerfile
 FROM alpine
 
 LABEL maintainer="moh.imam@protonmail.com"
