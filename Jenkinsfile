@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_HUB_USERNAME = 'yehiaf'
-        DOCKER_HUB_PASSWORD = credentials('dockerhub-credentials') /
+        DOCKER_HUB_PASSWORD = credentials('dockerhub-credentials').getPassword()
         IMAGE_NAME = 'java-app-pipeline'
         IMAGE_TAG = 'latest' 
     }
