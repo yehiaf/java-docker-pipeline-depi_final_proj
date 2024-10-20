@@ -49,11 +49,9 @@ pipeline {
 
     post {
         always {
-            stage('Cleanup') {
-                agent { none() } // No agent needed for cleanup
-                sh 'docker rm -f $(docker ps -aq) || true'
-                sh 'docker rmi $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG || true'
-            }
+            agent { none() } // No agent needed for cleanup
+            sh 'docker rm -f $(docker ps -aq) || true'
+            sh 'docker rmi $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG || true'
         }
         success {
             echo 'Pipeline succeeded!'
