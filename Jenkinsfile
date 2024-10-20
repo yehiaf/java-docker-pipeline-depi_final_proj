@@ -1,10 +1,10 @@
 pipeline {
-    agent none
+    agent { node 'agent1' }
 
     environment {
-        DOCKER_HUB_USERNAME = 'your_dockerhub_username'
+        DOCKER_HUB_USERNAME = 'yehiaf'
         DOCKER_HUB_PASSWORD = credentials('dockerhub-credentials') /
-        IMAGE_NAME = 'your-image-name'
+        IMAGE_NAME = 'java-app-pipeline'
         IMAGE_TAG = 'latest' 
     }
 
