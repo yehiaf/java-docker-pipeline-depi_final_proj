@@ -10,7 +10,7 @@ pipeline {
 
     stages {
         stage('Build Image') {
-            agent { docker { image 'node:14' } } 
+            agent { docker { node 'agent1' }
             steps {
                 script {
                     sh 'npm install' // if we want to Build the app inside the image
