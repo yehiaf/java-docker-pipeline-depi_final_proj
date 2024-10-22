@@ -34,9 +34,9 @@ pipeline {
             steps {
                 script {
                     sh "docker pull $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG"
-                    sh "docker run -d -p 80:8080 $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG" 
+                    sh "docker run -d -p 8081:8080 $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG" 
                     sleep 10 // Wait for the container to start
-                    def response = sh(script: "curl -s -o /dev/null -w '%{http_code}' http://localhost", returnStdout: true).trim()
+                    def response = sh(script: "curl -s -o /dev/null -w '%{http_code}' http://localhost:8081", returnStdout: true).trim()
                     if (response != '200') {
                         error("Website is not accessible. Received HTTP response: ${response}")
                     } else {
