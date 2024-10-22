@@ -30,7 +30,7 @@ pipeline {
         }
 
         stage('Deploy and Test') {
-            agent { label 'your-deployment-agent' } //put here our specific agent for deployment
+            agent { node 'agent1' } //put here our specific agent for deployment
             steps {
                 script {
                     sh "docker pull $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG"
