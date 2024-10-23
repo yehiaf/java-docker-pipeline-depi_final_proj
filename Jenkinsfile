@@ -46,4 +46,18 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            // Cleanup Docker images and containers after the run
+            sh 'docker rm -f $(docker ps -aq) || true'
+            sh 'docker rmi $DOCKER_HUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG || true'
+        }
+        success {
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
 }
