@@ -65,7 +65,7 @@ This project demonstrates a Java application built and deployed using a Docker p
    * Clone the Repository:
       - On VM1, clone the repository:
       ```bash
-      https://github.com/omarMohamedo-o/depi_final_project.git
+      https://github.com/yehiaf/java-docker-pipeline-depi_final_proj.git
       ```
 
 5. **Modify the Front Page:**
